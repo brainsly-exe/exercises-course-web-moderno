@@ -1,0 +1,58 @@
+<h1>Video personalizado</h1>
+
+<video id="meuVideo" width="800" height="450" preload="metadata" controls controlsList="nodownload">
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
+    Seu Browser não suporta esse formato de video.
+</video>
+
+<div>
+
+    <button btn-play="meuVideo" name="play">Play</button>
+    <button btn-pause="meuVideo" name="pause">Pause</button>
+
+</div>
+
+<div wm-progresso="meuVideo" class="progresso">
+    <div></div>
+</div>
+
+<style>
+    .progresso {
+        width: 800px;
+        height: 20px;;
+        border: solid 1px gray;
+        margin-top: 5px;
+    }
+
+    .progresso > div {
+        background-color: red;
+        color: white;
+        height: 100%;
+        width: 0%;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    
+</style>
+
+<script>
+
+    function configurarVideo(id){
+        const video = document.getElementById(id)
+        video.oncontextmenu = () =>false
+
+        const btnPlay = document.querySelector('[btn-Play]').onclick = e => video.play()
+        const btnPause = document.querySelector('[btn-Pause]').onclick = e => video.pause()
+
+        setInterval(() => {
+            const percentual = video.currentTime / video.duration * 100
+            const barra = document.querySelector(`[wm-progresso=${id}] > div`)
+            barra.style.width= percentual+'%'
+            barra.innerHTML = `${percentual.toFixed(1)}%`
+        })
+    }
+
+    configurarVideo('meuVideo')
+
+</script>

@@ -1,0 +1,52 @@
+<h1>Desafio listas aninahdas</h1>
+
+<h2>Projetos</h2>
+<ul class="tree">
+    <li>
+        <span wm-folder>Back-end</span>
+        <ul>
+            <li>
+                <span wm-folder>Produtos</span>
+                <ul>
+                    <li>exercicios.js</li>
+                    <li>teste.js</li>
+                    <li>lista.js</li>
+                </ul>
+            </li>
+            <li>
+                <span wm-folder>Config</span>
+                <ul>
+                    <li>servidor.js</li>
+                    <li>configuracao.js</li>
+                    <li>remoto.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <span wm-folder>Front-end</span>
+        <ul>
+            <li>
+                <span wm-folder>Produtos</span>
+                <ul>
+                    <li>projeto.html</li>
+                    <li>index.html</li>
+                    <li>texto.html</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css"/>
+
+<script>
+    document.querySelectorAll('[wm-folder]').forEach(folder => {
+        folder.onclick = function (e) {
+            const ul = folder.nextElementSibling
+            const d = ul.style.display
+            ul.style.display = d === 'none' ? 'block' : 'none' 
+        }
+    })
+
+</script>

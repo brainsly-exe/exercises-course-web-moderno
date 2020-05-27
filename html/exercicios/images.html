@@ -1,0 +1,66 @@
+<div wm-slider>
+
+    
+    <p>
+        <img src=" http://files.cod3r.com.br/curso-web/imagem1.jpg" width="513" height="420">
+    </p>
+    
+    <p>
+        <img src=" http://files.cod3r.com.br/curso-web/imagem2.jpg" width="513" height="420">
+    </p>
+    
+    <p>
+        <img src=" http://files.cod3r.com.br/curso-web/imagem3.png" width="613" height="420">
+    </p>
+
+</div>
+
+<style>
+    p {
+        position: absolute;
+        display: none;
+    }
+</style>
+
+<script>
+    function mover(elem, inicio, fim, passos, callback) {
+        const novoInicio = inicio - passos
+        if(novoInicio >= fim) {
+            elem.style.left = novoInicio + 'px'
+            setTimeout(() => mover(elem, novoInicio, fim, passos, callback), 7)
+        }else{
+            callback()
+        }
+    }
+
+/*    const p = document.querySelector('[wm-slider] > p')
+    p.style.display = 'block'
+    mover(p, 1500, -520, 5, () => {
+        console.log('Terminou')
+    })
+*/
+    function slider() {
+    const elementos = document.querySelectorAll('[wm-slider] > p')
+    const slides = Array.from(elementos)
+    exibirSlides(slides, slides[0])
+    }
+
+    function exibirSlides(slides, slide) {
+        slide.style.display = 'block'
+
+        const ini = innerWidth
+        const f = - slide.clientWidth
+
+        mover(slide, ini , f, 5, () => {
+            exibirSlides(slides, getProximo(slides, slide))
+        })
+
+        function getProximo(lista, atual) {
+            const i = lista.indexOf(atual) + 1
+            return i < lista.length ? lista[i] : lista[0]
+        }
+    }
+    
+    slider()
+    
+</script>

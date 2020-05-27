@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios</title>
+</head>
+<body>
+
+    <style>
+        #conteudo {
+            padding: 30px 0px;
+        }
+
+    
+    </style>
+    
+    
+    <header>
+        <h1> Exercícios HTML</h1>
+    </header>
+    <nav>
+        <a href wm-link="exercicios/teste.html">001-Teste</a> |
+        <a href wm-link="exercicios/texto1.html">001-Texto</a> |
+        <a href wm-link="exercicios/texto2.html">002-Texto</a> |
+        <a href wm-link="exercicios/listaAninhada.html">001-Lista</a> |
+        <a href wm-link="exercicios/form/formulario.html">001-Formulário</a> |
+        <a href wm-link="exercicios/images.html">001-Imagens</a> |
+    </nav>
+    <section id="conteudo">
+        
+    </section>
+    
+    <footer>
+        Rodapé da pagína
+    </footer>
+
+
+    <script>
+
+        document.querySelectorAll('[wm-link]').forEach(link => {
+            const documento = document.getElementById('conteudo')
+
+            link.onclick = function(e) {
+                e.preventDefault()
+                fetch(link.getAttribute('wm-link'))
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+                
+            }
+            
+        })
+
+    </script>
+</body>
+</html>
