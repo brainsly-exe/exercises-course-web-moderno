@@ -12,22 +12,24 @@ Cada Cidade tem o atributo _id <- ObjectId
 **-- RESPOSTA --**
 
 db.estados.insert({
-    _id: ObjectId("158795874535878542135478"),
     nome: "São Paulo",
     sigla: "SP",
     regiao: "Sudeste",
     Cidade: [
         {
+            _id: ObjectId(),
             nome: "Campinas",
             area: 795.7,
             prefeito: "Jonas Donizette",
             populacao: 1081000
         },
         {
+            _id: ObjectId(),
             nome: "Guarulhos",
             populacao: 1325000
         },
         {
+            _id: ObjectId(),
             nome: "Sorocaba",
             distanciaCapital: 87,
             populacao: 644919
