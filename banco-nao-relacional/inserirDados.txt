@@ -1,0 +1,18 @@
+// Insere dados na tabela estados
+db.estados.insert({
+    nome: "Acre",
+    sigla: "AC",
+    regiao: "Norte"
+});
+
+// Insere dados na tabela estados
+db.estados.save({
+    nome: "Alagoas",
+    sigla: "AL",
+    regiao: "Nordeste",
+    populacao: 3322000
+});
+
+// Métodos para retornar os dados da tabela
+db.estados.find(); // Retorna todos os objetos da tabela estados (sem identação)
+db.estados.find().pretty(); // Retorna todos os objetos da tabela estados (com identação)

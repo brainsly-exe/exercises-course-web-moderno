@@ -1,0 +1,36 @@
+**-- DESAFIO --**
+
+Estado
+nome = São Paulo, Sigla = SP, regiao = Sudeste,
+Cidades
+    nome = Campinas, area = 795.7, prefeito = Jonas Donizette, populacao = 1081000,
+    nome = Guarulhos, populacao = 1325000,
+    nome = Sorocaba, distanciaCapital = 87 , populacao = 644919,
+
+Cada Cidade tem o atributo _id <- ObjectId
+
+**-- RESPOSTA --**
+
+db.estados.insert({
+    _id: ObjectId("158795874535878542135478"),
+    nome: "São Paulo",
+    sigla: "SP",
+    regiao: "Sudeste",
+    Cidade: [
+        {
+            nome: "Campinas",
+            area: 795.7,
+            prefeito: "Jonas Donizette",
+            populacao: 1081000
+        },
+        {
+            nome: "Guarulhos",
+            populacao: 1325000
+        },
+        {
+            nome: "Sorocaba",
+            distanciaCapital: 87,
+            populacao: 644919
+        }
+    ]
+});

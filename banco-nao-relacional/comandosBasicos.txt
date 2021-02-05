@@ -1,0 +1,16 @@
+**-- Startar MongoDB no Linux (com system init systemd) --**
+
+1 - sudo systemctl start mongod // Starta o processo do mongod
+
+// Caso ocorra o erro (Failed to start mongod.service: Unit mongod.service not found.)
+1.2 - sudo systemctl start mongod
+
+2 - sudo systemctl status mongod // Verifica se o mongod foi inicializado com sucesso
+
+3 - sudo systemctl stop mongod // Para o processo do mongod
+
+4 - sudo systemctl restart mongod // Reinicia o processo do mongod
+
+5 - mongo // Inicia o MongoDB
+
+db.help(); // Exibe todos os comandos do MongoDB
